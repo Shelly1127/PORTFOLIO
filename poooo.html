@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poojitha Gunupudi | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Space Grotesk',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* Background */
+
+.blob{
+position:fixed;
+border-radius:50%;
+filter:blur(100px);
+z-index:-1;
+opacity:.6;
+}
+
+.blob1{
+width:350px;
+height:350px;
+background:#00d9ff;
+top:-100px;
+left:-100px;
+}
+
+.blob2{
+width:400px;
+height:400px;
+background:#8b5cf6;
+bottom:-150px;
+right:-100px;
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+width:100%;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,8,22,.7);
+backdrop-filter:blur(20px);
+z-index:100;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+color:#00d9ff;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00d9ff;
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+align-items:center;
+padding:0 10%;
+gap:60px;
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:#b6c2d9;
+line-height:1.8;
+}
+
+.btns{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{
+background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+color:white;
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.2);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.profile-card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.1);
+text-align:center;
+}
+
+.avatar{
+width:180px;
+height:180px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+padding:5px;
+}
+
+.avatar img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* Sections */
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+font-size:2.5rem;
+margin-bottom:50px;
+text-align:center;
+}
+
+/* About */
+
+.about-card{
+background:rgba(255,255,255,.05);
+padding:40px;
+border-radius:25px;
+line-height:2;
+}
+
+/* Skills */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.skill{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+transition:.4s;
+}
+
+.skill:hover{
+transform:translateY(-10px);
+}
+
+.bar{
+height:8px;
+background:#222;
+border-radius:20px;
+margin-top:15px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+}
+
+/* Timeline */
+
+.timeline{
+position:relative;
+padding-left:30px;
+border-left:2px solid #00d9ff;
+}
+
+.timeline-item{
+margin-bottom:40px;
+}
+
+.timeline-item h3{
+color:#00d9ff;
+}
+
+/* Project */
+
+.project{
+background:rgba(255,255,255,.05);
+padding:40px;
+border-radius:30px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.tag{
+padding:8px 15px;
+border-radius:30px;
+background:rgba(0,217,255,.15);
+}
+
+/* Contact */
+
+.contact-box{
+text-align:center;
+background:rgba(255,255,255,.05);
+padding:50px;
+border-radius:30px;
+}
+
+.contact-box a{
+color:#00d9ff;
+text-decoration:none;
+}
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:50px;
+align-items:center;
+}
+
+.contact-info h3{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.contact-info p{
+color:#b6c2d9;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.info-item{
+margin-bottom:20px;
+font-size:1.1rem;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+background:rgba(255,255,255,.05);
+border:none;
+padding:18px;
+border-radius:15px;
+color:white;
+font-size:1rem;
+outline:none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+color:#888;
+}
+
+.contact-form button{
+background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+border:none;
+padding:15px;
+border-radius:50px;
+font-size:1rem;
+font-weight:600;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.contact-form button:hover{
+transform:translateY(-5px);
+}
+
+#successMsg{
+margin-top:10px;
+color:#00ff88;
+}
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:50px;
+align-items:center;
+}
+
+.contact-info h3{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.contact-info p{
+color:#b6c2d9;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.info-item{
+margin-bottom:20px;
+font-size:1.1rem;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+background:rgba(255,255,255,.05);
+border:none;
+padding:18px;
+border-radius:15px;
+color:white;
+font-size:1rem;
+outline:none;
+}
+
+.contact-form textarea{
+resize:none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+color:#888;
+}
+
+.contact-form button{
+background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+border:none;
+padding:15px;
+border-radius:50px;
+color:white;
+cursor:pointer;
+font-size:1rem;
+font-weight:600;
+}
+
+.contact-form button:hover{
+transform:translateY(-5px);
+}
+
+#successMsg{
+color:#00ff88;
+margin-top:10px;
+}
+@media(max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+
+/* Animation */
+
+.hidden{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+padding-top:120px;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<nav>
+<div class="logo">POOJITHA.</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div>
+<h1>
+Hi, I'm
+<span>Poojitha</span>
+</h1>
+
+<p>
+Final-year Computer Science & Systems Engineering student passionate about Full Stack Development, Cybersecurity, Cloud Computing and Data Analytics. I transform complex technical systems into elegant digital experiences.
+</p>
+
+<div class="btns">
+<a href="#projects" class="btn primary">View Projects</a>
+<a href="#contact" class="btn secondary">Contact Me</a>
+</div>
+</div>
+
+<div class="profile-card">
+<div class="avatar">
+<img src="poo.jpeg" alt="poojitha">
+</div>
+
+<h2 style="margin-top:20px;">Poojitha Gunupudi</h2>
+<p>Open To Work • 2027 Graduate</p>
+</div>
+
+</section>
+
+<section id="about" class="hidden">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about-card">
+Hello! I'm Poojitha, a Computer Science and Systems Engineering student at Andhra University. I love building scalable software solutions, exploring cybersecurity, working with cloud technologies and transforming complex ideas into beautiful digital products. My journey blends engineering, creativity and innovation.
+</div>
+
+</section>
+
+<section id="skills" class="hidden">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill">
+<h3>Java</h3>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<h3>Python</h3>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+<h3>HTML / CSS</h3>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<h3>JavaScript</h3>
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+<h3>Cybersecurity</h3>
+<div class="bar"><div class="fill" style="width:75%"></div></div>
+</div>
+
+<div class="skill">
+<h3>Cloud Computing</h3>
+<div class="bar"><div class="fill" style="width:70%"></div></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="experience" class="hidden">
+
+<h2 class="section-title">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Full Stack Developer Intern</h3>
+<p>RINL Steel Plant | Apr 2025 – Jun 2025</p>
+</div>
+
+<div class="timeline-item">
+<h3>Business Development Analyst</h3>
+<p>Younity | Mar 2025 – May 2025</p>
+</div>
+
+<div class="timeline-item">
+<h3>Administrative & Support Intern</h3>
+<p>TiE Vizag</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="hidden">
+
+<h2 class="section-title">Featured Project</h2>
+
+<div class="project">
+
+<h2>Employee Shift & Attendance Manager</h2>
+
+<p>
+A full-stack attendance management platform developed during my internship at RINL Steel Plant. The system provides secure authentication, attendance tracking, shift scheduling, calendar integration, leave management, reporting and role-based access control.
+</p>
+
+<div class="tags">
+<div class="tag">Java</div>
+<div class="tag">Spring Boot</div>
+<div class="tag">Oracle 21c</div>
+<div class="tag">HTML</div>
+<div class="tag">CSS</div>
+<div class="tag">JavaScript</div>
+</div>
+
+</div>
+
+</section>
+<section id="contact" class="hidden">
+
+<h2 class="section-title">Contact Me</h2>
+
+<div class="contact-container">
+
+<div class="contact-info">
+
+<h3>Let's Work Together</h3>
+
+<p>
+Feel free to contact me for projects,
+internships, collaborations or opportunities.
+</p>
+
+<div class="info-item">
+📧 poojithag2005@gmail.com
+</div>
+
+<div class="info-item">
+💼 LinkedIn
+</div>
+
+<div class="info-item">
+📍 Visakhapatnam
+</div>
+
+</div>
+
+<form id="contactForm" class="contact-form">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<textarea
+name="message"
+placeholder="Your Message"
+rows="7"
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+<p id="successMsg"></p>
+
+</form>
+
+</div>
+
+</section>
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+<script>
+
+const form =
+document.getElementById("contactForm");
+
+form.addEventListener("submit", async(e)=>{
+
+e.preventDefault();
+
+const formData = {
+
+name:form.name.value,
+email:form.email.value,
+message:form.message.value
+
+};
+
+await fetch(
+"https://script.google.com/macros/s/AKfycbz9YuoNVVsvX1_BzUJ-MJuQFxWjtPZAd_owMmUn7TM7XaQbrSqN4XIa12Y3-nyL_BmO/exec",
+{
+method:"POST",
+body:JSON.stringify(formData)
+}
+);
+
+document.getElementById("successMsg")
+.innerHTML =
+"Message Sent Successfully!";
+
+form.reset();
+
+});
+
+</script>
+</body>
+</html>
